@@ -8,12 +8,11 @@ body {
 
 /* Header Stencil Effect */
 .header-logo h1 {
-  font-size: 8vw; /* Huge main title */
-  color: transparent; /* Make the letters transparent */
-  background-image: url('../images/header.png'); /* Use the header image inside the text */
-  background-clip: text; /* Clip the background to the text */
-  -webkit-background-clip: text; /* Ensure this works in webkit browsers */
-  background-size: cover; /* Ensure the background image fits the text */
+  font-size: 10vw; /* Bigger, more epic title */
+  color: transparent; /* Transparent letters */
+  background-image: url('../images/header.png'); /* Image fills the letters */
+  background-clip: text;
+  -webkit-background-clip: text;
   text-align: center;
   padding: 20px;
   margin: 0;
@@ -50,22 +49,23 @@ body {
   height: 24px;
 }
 
-/* Story Section */
-#current-story h3 {
-  font-size: 2.5em;
-  margin-bottom: 10px;
+/* Story Text Wrapping */
+#content-wrapper {
+  display: flex;
+  flex-wrap: wrap; /* Allows story text to wrap properly */
+  align-items: flex-start;
 }
 
-#current-story p {
-  font-size: 1.1em;
-  line-height: 1.6em;
+#current-story {
+  flex: 1; /* Allows the story content to expand */
+  min-width: 60%; /* Minimum width so it doesn't collide with the right column */
+  padding-right: 15px; /* Gap between story and right column */
 }
 
 /* Right-side Layout */
 #right-side {
-  float: right; /* Move to the right side */
-  width: 25%; /* Takes up 25% of the width */
-  margin-right: 10px;
+  width: 25%;
+  margin-left: 10px;
 }
 
 /* Dynamic Content Box */
@@ -82,59 +82,34 @@ body {
   line-height: 1.6;
 }
 
-.nav-arrow {
-  width: 30px; /* Small size for content arrows */
-  margin: 10px;
-  cursor: pointer;
-}
-
-.nav-arrow:hover {
-  opacity: 0.8;
-}
-
-/* Larger swipe arrows for mobile */
-@media (max-width: 600px) {
-  .nav-arrow {
-    width: 50px; /* Larger size for mobile */
-    position: absolute;
-    bottom: 20px;
-  }
-}
-
-/* Calendar Section */
-#calendar-section {
-  background-color: #222;
-  padding: 20px;
-  color: #f5f5f5;
-}
-
-#calendar {
-  background-color: #444;
-  padding: 10px;
-}
-
+/* Calendar Display */
 .calendar-icon {
   width: 40px;
   height: 40px;
   cursor: pointer;
+  display: none; /* Hidden by default except on mobile */
 }
 
-.calendar-icon:hover {
-  opacity: 0.7;
+.desktop-only {
+  display: block;
 }
 
-/* Word Cloud */
-#word-cloud {
-  background-color: #333;
-  padding: 10px;
-  border-radius: 5px;
+.mobile-only {
+  display: none;
 }
 
-#word-cloud span {
-  display: inline-block;
-  margin: 5px;
-  font-weight: bold;
-  font-size: 1.4em; /* Adjusted for size variation based on popularity */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none; /* Hide full calendar on mobile */
+  }
+  .mobile-only {
+    display: inline-block; /* Show calendar icon */
+  }
+}
+
+/* Preserve PNG Transparency */
+.social-media a img, .nav-arrow, .calendar-icon {
+  background-color: transparent; /* Ensure transparency is preserved */
 }
 
 /* Footer */
@@ -153,7 +128,6 @@ footer small {
   width: 40px;
   height: 40px;
   margin: 0 10px;
-  background-color: transparent; /* Ensure PNG transparency */
 }
 
 .social-media a img:hover {
