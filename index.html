@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ranch Rant</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/scripts.js" defer></script>
+</head>
+<body>
+  <header>
+    <div id="logo" class="header-logo">
+      <h1>Ranch Rant</h1>
+    </div>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop (Coming Soon)</a>
+      <a href="archive.html">Archive</a>
+      <a href="send-tea.html">Send Tea</a>
+      <a href="newsletter.html">Newsletter</a>
+      <input type="text" placeholder="Search..." id="search-bar">
+      <img src="assets/search.png" alt="Search" class="search-icon">
+    </nav>
+    <p id="short-description">Short description</p>
+  </header>
+
+  <main>
+    <section id="current-story">
+      <h2>Current Story</h2>
+      <h3 id="story-title"></h3>
+      <p id="story-content"></p>
+    </section>
+
+    <aside id="dynamic-content-section">
+      <div id="dynamic-content">Random Content Here</div>
+      <img src="assets/larrow.png" alt="Previous" class="nav-arrow">
+      <img src="assets/rarrow.png" alt="Next" class="nav-arrow">
+    </aside>
+
+    <aside id="calendar-section">
+      <h3>Upcoming Events</h3>
+      <img src="assets/calendar.png" alt="Calendar" class="calendar-icon" onclick="showEventPopup('event1')">
+      <div id="calendar">Calendar will be here</div>
+    </aside>
+
+    <aside id="word-cloud-section">
+      <h3>Popular Searches</h3>
+      <div id="word-cloud">Word Cloud Here</div>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="social-media">
+      <a href="#"><img src="assets/instagram.png" alt="Instagram"></a>
+      <a href="#"><img src="assets/twitter.png" alt="Twitter"></a>
+      <a href="#"><img src="assets/youtube.png" alt="YouTube"></a>
+      <a href="#"><img src="assets/facebook.png" alt="Facebook"></a>
+    </div>
+    <small>&copy; Triple-R 2024. All rights reserved.</small>
+    <p>Disclaimer: This site provides local news, gossip, and entertainment, and is not responsible for the accuracy of any information provided.</p>
+  </footer>
+</body>
+</html>
