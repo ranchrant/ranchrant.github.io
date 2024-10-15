@@ -1,0 +1,175 @@
+
+/* General Styles */
+body {
+  background-color: #111;
+  color: #f5f5f5;
+  font-family: Arial, sans-serif;
+}
+
+h1, h2, h3 {
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  color: #f5f5f5;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #ccc;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Header Title */
+.header-logo h1 {
+  font-size: 8vw; /* Huge main title */
+  color: #fff;
+  text-align: center;
+  background-color: black;
+  padding: 20px;
+  background-clip: text;
+  -webkit-background-clip: text;
+  width: 100%;
+  margin: 0;
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: flex-start;
+  background-color: #333;
+  padding: 10px;
+}
+
+.navbar a {
+  margin-right: 20px;
+  color: #f5f5f5;
+  font-size: 1.2em;
+}
+
+#search-bar {
+  margin-left: auto;
+  padding: 5px;
+}
+
+.search-icon {
+  margin-left: 10px;
+  width: 24px;
+  height: 24px;
+}
+
+/* Story Section */
+#current-story h3 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+#current-story p {
+  font-size: 1.1em;
+  line-height: 1.6em;
+}
+
+/* Word Cloud */
+#word-cloud div {
+  font-size: 1.2em;
+}
+
+#word-cloud span {
+  display: inline-block;
+  margin: 5px;
+  font-weight: bold;
+  font-size: 1.4em; /* Adjusted for size variation based on popularity */
+}
+
+/* Dynamic Content Box */
+#dynamic-content-section {
+  background-color: #f4ecd8; /* Papyrus background */
+  color: #111; /* Black text */
+  padding: 20px;
+  border: 3px solid #666;
+  border-style: double; /* Attempting barbed wire style */
+  margin-top: 20px;
+}
+
+#dynamic-content {
+  font-size: 1.3em;
+  line-height: 1.6;
+}
+
+.nav-arrow {
+  width: 30px; /* Small size for content arrows */
+  margin: 10px;
+  cursor: pointer;
+}
+
+.nav-arrow:hover {
+  opacity: 0.8;
+}
+
+/* Larger swipe arrows for mobile */
+@media (max-width: 600px) {
+  .nav-arrow {
+    width: 50px; /* Larger size for mobile */
+    position: absolute;
+    bottom: 20px;
+  }
+}
+
+/* Calendar Section */
+#calendar-section {
+  background-color: #222;
+  padding: 20px;
+  color: #f5f5f5;
+}
+
+#calendar {
+  background-color: #444;
+  padding: 10px;
+}
+
+.calendar-icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.calendar-icon:hover {
+  opacity: 0.7;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  padding: 20px;
+  text-align: center;
+  color: #f5f5f5;
+}
+
+footer small {
+  font-size: 0.8em;
+}
+
+.social-media a img {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+}
+
+.social-media a img:hover {
+  opacity: 0.8; /* Hover effect for social media icons */
+}
+
+/* Menu Icon */
+#menu-icon {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  display: none; /* Initially hidden, shown on mobile */
+}
+
+@media (max-width: 768px) {
+  #menu-icon {
+    display: inline-block;
+    margin-left: auto;
+  }
+}
