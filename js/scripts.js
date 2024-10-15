@@ -1,13 +1,29 @@
 
-// Load random content in the dynamic box on page load
+// Load story content from text files (e.g., week1.txt, week2.txt)
+function loadStoryContent(file) {
+  fetch('stories/' + file)
+    .then(response => response.text())
+    .then(data => {
+      let lines = data.split('\n');
+      let storyTitle = lines[0].replace("Title. ", "");
+      document.getElementById('story-title').innerText = storyTitle;
+
+      let storyContent = lines.slice(1).join('\n');
+      document.getElementById('story-content').innerText = storyContent;
+    })
+    .catch(error => console.log("Error loading story content:", error));
+}
+
+// Load random content from content.txt
 function loadRandomContent() {
-  var contentArray = [
-    "Tip: Always carry a towel.",
-    "Shteen-mode Diaries: Volume 1",
-    "Animal of the Month: The Mighty Platypus"
-  ];
-  var randomIndex = Math.floor(Math.random() * contentArray.length);
-  document.getElementById('dynamic-content').innerText = contentArray[randomIndex];
+  fetch('content/content.txt')
+    .then(response => response.text())
+    .then(data => {
+      let contentArray = data.split('\n');
+      let randomIndex = Math.floor(Math.random() * contentArray.length);
+      document.getElementById('dynamic-content').innerText = contentArray[randomIndex];
+    })
+    .catch(error => console.log("Error loading random content:", error));
 }
 
 // Rotate header image every 5 hours
@@ -33,10 +49,8 @@ function enableSwipeNavigation() {
   document.addEventListener('touchend', function(e) {
     let endX = e.changedTouches[0].pageX;
     if (startX - endX > 50) {
-      // Swipe left (next story)
       goToNextStory();
     } else if (endX - startX > 50) {
-      // Swipe right (previous story)
       goToPreviousStory();
     }
   }, false);
@@ -51,11 +65,10 @@ function goToPreviousStory() {
   console.log("Previous story");
 }
 
-// Display popup for calendar event when clicked
-function showEventPopup(eventId) {
-  var eventInfo = document.getElementById(eventId);
-  var popupContent = eventInfo.innerHTML + '<a href="events/' + eventId + '.html"> Read more...</a>';
-  alert(popupContent); // Placeholder for actual popup logic
+// Display popup for calendar on mobile when clicked
+function toggleCalendarPopup() {
+  let calendar = document.getElementById('calendar');
+  calendar.classList.toggle('show-popup');
 }
 
 // Attach event listener for word cloud search
@@ -76,8 +89,9 @@ function performSearch(query) {
 
 // Initialize the script after the page has loaded
 window.onload = function() {
-  loadRandomContent();
-  rotateHeaderImage();
-  enableSwipeNavigation();
-  enableWordCloudSearch();
+  loadStoryContent('week1.txt'); // Load initial story from week1.txt
+  loadRandomContent(); // Load random dynamic content
+  rotateHeaderImage(); // Set up header image rotation
+  enableSwipeNavigation(); // Enable swipe for mobile
+  enableWordCloudSearch(); // Enable word cloud functionality
 };
