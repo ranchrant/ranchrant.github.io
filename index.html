@@ -30,8 +30,8 @@
     <section id="content-wrapper">
       <div id="current-story">
         <h2>Current Story</h2>
-        <h3 id="story-title"></h3> <!-- Story title will load here -->
-        <p id="story-content"></p> <!-- Story content will load here -->
+        <h3 id="story-title"></h3>
+        <p id="story-content"></p>
       </div>
 
       <aside id="right-side">
@@ -65,51 +65,6 @@
     <p>Disclaimer: This site provides local news, gossip, and entertainment, and is not responsible for the accuracy of any information provided.</p>
   </footer>
 
-  <script>
-    // Load story content from the current story file in the stories folder
-    function loadStory(fileName) {
-      fetch('stories/' + fileName) // Load from the 'stories' folder
-        .then(response => response.text())
-        .then(data => {
-          const storyParts = data.split('\n'); // Assuming title and content are separated by new lines
-          document.getElementById('story-title').textContent = storyParts[0]; // Title in the first line
-          document.getElementById('story-content').textContent = storyParts.slice(1).join('\n'); // Rest as content
-        })
-        .catch(err => console.log("Error loading story:", err));
-    }
-
-    // Call the function to load the current story (week1.txt or whatever is in 'stories/')
-    loadStory('week1.txt'); // Make sure the current story file is named accordingly in 'stories/'
-
-    // Dynamic content cycling
-    let dynamicContentIndex = 0;
-    const dynamicContent = document.getElementById('dynamic-content');
-    const contentList = ["Tip 1: Try this!", "Tip 2: Did you know?", "Tip 3: Stay tuned!"]; // Placeholder content
-
-    if (dynamicContent) {
-      dynamicContent.textContent = contentList[dynamicContentIndex]; // Load the initial content
-
-      setInterval(() => {
-        dynamicContentIndex = (dynamicContentIndex + 1) % contentList.length;
-        dynamicContent.textContent = contentList[dynamicContentIndex];
-      }, 10000); // 10 seconds interval
-    }
-
-    // Navigation through dynamic content arrows
-    const leftArrow = document.querySelector('.nav-arrow:first-of-type');
-    const rightArrow = document.querySelector('.nav-arrow:last-of-type');
-
-    if (leftArrow && rightArrow && dynamicContent) {
-      leftArrow.addEventListener('click', () => {
-        dynamicContentIndex = (dynamicContentIndex - 1 + contentList.length) % contentList.length;
-        dynamicContent.textContent = contentList[dynamicContentIndex];
-      });
-
-      rightArrow.addEventListener('click', () => {
-        dynamicContentIndex = (dynamicContentIndex + 1) % contentList.length;
-        dynamicContent.textContent = contentList[dynamicContentIndex];
-      });
-    }
-  </script>
+  <script src="js/scripts.js"></script>
 </body>
 </html>
