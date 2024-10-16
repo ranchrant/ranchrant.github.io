@@ -11,8 +11,8 @@
 <body>
   <header>
     <div id="logo" class="header-logo">
-  <h1>Ranch Rant</h1>
-</div>
+      <h1>Ranch Rant</h1>
+    </div>
     <nav class="navbar">
       <a href="index.html">Home</a>
       <a href="send-tea.html">Send Tea</a>
@@ -23,19 +23,17 @@
 
   <main>
     <section id="content-wrapper">
-      <div id="story-list">
-        <!-- Sorting tools -->
+      <div id="archive-list">
+        <!-- Sorting tools for the archive -->
         <label for="sorting-options">Sort By:</label>
         <select id="sorting-options">
           <option value="date">Date</option>
           <option value="relevance">Relevance</option>
         </select>
 
-        <!-- Archive list -->
-        <ul>
-          <li><strong>Story Title 1</strong> - Preview of the first 100 characters...</li>
-          <li><strong>Story Title 2</strong> - Preview of the first 100 characters...</li>
-          <!-- Add more stories as needed -->
+        <!-- Archive list with titles and first 100 characters -->
+        <ul id="archive-items">
+          <!-- Old stories will be dynamically added here -->
         </ul>
       </div>
 
@@ -68,5 +66,56 @@
     </div>
     <small>&copy; Triple-R 2024. All rights reserved.</small>
   </footer>
+
+  <script>
+    // Function to load archived stories from the archive folder
+    function loadArchive() {
+      const archiveItems = [
+        { title: "Story Title 1", preview: "First 100 characters of story 1..." },
+        { title: "Story Title 2", preview: "First 100 characters of story 2..." },
+        { title: "Story Title 3", preview: "First 100 characters of story 3..." }
+      ];
+
+      const archiveList = document.getElementById('archive-items');
+      archiveItems.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `<strong>${item.title}</strong> - ${item.preview}`;
+        archiveList.appendChild(listItem);
+      });
+    }
+
+    // Call the loadArchive function on page load
+    loadArchive();
+
+    // Dynamic content cycling
+    let dynamicContentIndex = 0;
+    const dynamicContent = document.getElementById('dynamic-content');
+    const contentList = ["Tip 1: Try this!", "Tip 2: Did you know?", "Tip 3: Stay tuned!"]; // Placeholder content
+
+    if (dynamicContent) {
+      dynamicContent.textContent = contentList[dynamicContentIndex]; // Load the initial content
+
+      setInterval(() => {
+        dynamicContentIndex = (dynamicContentIndex + 1) % contentList.length;
+        dynamicContent.textContent = contentList[dynamicContentIndex];
+      }, 10000); // 10 seconds interval
+    }
+
+    // Navigation through dynamic content arrows
+    const leftArrow = document.querySelector('.nav-arrow:first-of-type');
+    const rightArrow = document.querySelector('.nav-arrow:last-of-type');
+
+    if (leftArrow && rightArrow && dynamicContent) {
+      leftArrow.addEventListener('click', () => {
+        dynamicContentIndex = (dynamicContentIndex - 1 + contentList.length) % contentList.length;
+        dynamicContent.textContent = contentList[dynamicContentIndex];
+      });
+
+      rightArrow.addEventListener('click', () => {
+        dynamicContentIndex = (dynamicContentIndex + 1) % contentList.length;
+        dynamicContent.textContent = contentList[dynamicContentIndex];
+      });
+    }
+  </script>
 </body>
 </html>
