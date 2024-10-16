@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send Tea - Ranch Rant</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/scripts.js" defer></script>
+</head>
+<body>
+  <header>
+    <div id="logo" class="header-logo">
+      <h1>Ranch Rant</h1>
+    </div>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="send-tea.html">Send Tea</a>
+      <a href="archive.html">Archive</a>
+      <a href="shop.html">Shop</a>
+    </nav>
+    <p id="short-description">No story is too crazy for The Ranch Rant, so hit us with the spiciest tea—anonymity guaranteed (we’ll never snitch).</p>
+  </header>
+
+  <main>
+    <section id="content-wrapper">
+      <form id="send-tea-form">
+        <label for="alias">Alias:</label>
+        <input type="text" id="alias" maxlength="50" placeholder="Enter your alias...">
+        <div class="char-count" id="alias-char-count">0/50</div>
+        
+        <label for="whahappen">Whahappen?!</label>
+        <textarea id="whahappen" maxlength="200" placeholder="What happened?"></textarea>
+        <div class="char-count" id="whahappen-char-count">0/200</div>
+
+        <button type="button" onclick="validateSendTeaForm()">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div class="social-media">
+      <a href="#"><img src="assets/instagram.png" alt="Instagram"></a>
+      <a href="#"><img src="assets/twitter.png" alt="Twitter"></a>
+      <a href="#"><img src="assets/youtube.png" alt="YouTube"></a>
+      <a href="#"><img src="assets/facebook.png" alt="Facebook"></a>
+    </div>
+    <small>&copy; Triple-R 2024. All rights reserved.</small>
+  </footer>
+</body>
+</html>
