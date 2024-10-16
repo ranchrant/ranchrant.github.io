@@ -64,6 +64,18 @@
     <small>&copy; Triple-R 2024. All rights reserved.</small>
   </footer>
 
-  <script src="js/scripts.js"></script>
+  <script>
+    // Correct pointer to load the current story from 'current.txt' in the 'stories' folder
+    document.addEventListener('DOMContentLoaded', () => {
+        fetch('stories/current.txt')  // Correct line here!
+            .then(response => response.text())
+            .then(data => {
+                const storyParts = data.split('\n');
+                document.getElementById('story-title').textContent = storyParts[0]; // First line is the title
+                document.getElementById('story-content').textContent = storyParts.slice(1).join('\n'); // Rest is content
+            })
+            .catch(err => console.error("Error loading current story:", err));
+    });
+  </script>
 </body>
 </html>
