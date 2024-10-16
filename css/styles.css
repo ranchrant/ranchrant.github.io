@@ -20,19 +20,20 @@ header {
 
 #logo h1 {
     margin: 0;
-    font-size: 5.6em; /* Adjust as needed for scaling */
+    font-size: 5.6em; /* Adjusted for scaling */
     background-image: url('/images/header.png'); /* Path to your background image */
     background-size: cover;
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     display: inline-block;
+    max-width: 100%;
 }
 
 #logo::before {
     content: 'the';
     position: absolute;
-    left: -80px; /* Adjust as needed */
+    left: -80px; /* Adjust for alignment */
     top: 20px;
     font-size: 0.375em; /* 25% of the original size */
     font-family: 'Pacifico', cursive;
@@ -81,9 +82,10 @@ header {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: 300px; /* Fixed width for the right-side content */
+    width: 300px;
 }
 
+/* Content box styles */
 #dynamic-content-section, #calendar-section, #word-cloud-section {
     border: 1px solid #444;
     padding: 15px;
@@ -101,25 +103,8 @@ header {
     color: #ff6347;
 }
 
-/* Footer styles */
-footer {
-    background-color: #000;
-    padding: 20px;
-    text-align: center;
-}
-
-.social-media img {
-    width: 30px;
-    margin: 0 10px;
-    filter: brightness(0) invert(1);
-}
-
-.social-media img:hover {
-    filter: brightness(0) invert(0.7);
-}
-
-/* Form styles */
-input[type="text"], textarea {
+/* Form styling */
+input[type="text"], input[type="email"], textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -140,6 +125,23 @@ button {
 
 button:hover {
     background-color: #ff4500;
+}
+
+/* Footer styles */
+footer {
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+}
+
+.social-media img {
+    width: 30px;
+    margin: 0 10px;
+    filter: brightness(0) invert(1);
+}
+
+.social-media img:hover {
+    filter: brightness(0) invert(0.7);
 }
 
 /* Archive list styles */
@@ -170,7 +172,7 @@ button:hover {
     padding: 10px;
 }
 
-/* Miscellaneous */
+/* Character count styling */
 .char-count {
     font-size: 0.8em;
     color: #999;
