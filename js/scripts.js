@@ -1,112 +1,71 @@
-// Load story content from text files (e.g., week1.txt, week2.txt)
-function loadStoryContent(file) {
-  fetch('stories/' + file)
-    .then(response => response.text())
-    .then(data => {
-      let lines = data.split('\n');
-      let storyTitle = lines[0].replace("Title. ", "");
-      document.getElementById('story-title').innerText = storyTitle;
+document.addEventListener('DOMContentLoaded', () => {
+    // Handle character count for the Send Tea form
+    const aliasInput = document.getElementById('alias');
+    const aliasCharCount = document.getElementById('alias-char-count');
+    const whahappenInput = document.getElementById('whahappen');
+    const whahappenCharCount = document.getElementById('whahappen-char-count');
 
-      let storyContent = lines.slice(1).join('\n');
-      document.getElementById('story-content').innerText = storyContent;
-    })
-    .catch(error => console.log("Error loading story content:", error));
-}
-
-// Load random content from content.txt
-function loadRandomContent() {
-  fetch('content/content.txt')
-    .then(response => response.text())
-    .then(data => {
-      let contentArray = data.split('\n');
-      let randomIndex = Math.floor(Math.random() * contentArray.length);
-      document.getElementById('dynamic-content').innerText = contentArray[randomIndex];
-    })
-    .catch(error => console.log("Error loading random content:", error));
-}
-
-// Rotate header image every 5 hours
-let headerImages = [
-  'images/header1.jpg',
-  'images/header2.jpg',
-  'images/header3.jpg'
-];
-
-function rotateHeaderImage() {
-  var currentTime = new Date().getTime();
-  var imageIndex = Math.floor((currentTime / (5 * 60 * 60 * 1000)) % headerImages.length);
-  document.getElementById('logo').style.backgroundImage = 'url(' + headerImages[imageIndex] + ')';
-}
-
-// Swipe functionality for mobile story navigation
-function enableSwipeNavigation() {
-  let startX;
-  document.addEventListener('touchstart', function(e) {
-    startX = e.changedTouches[0].pageX;
-  }, false);
-
-  document.addEventListener('touchend', function(e) {
-    let endX = e.changedTouches[0].pageX;
-    if (startX - endX > 50) {
-      goToNextStory();
-    } else if (endX - startX > 50) {
-      goToPreviousStory();
+    if (aliasInput && aliasCharCount) {
+        aliasInput.addEventListener('input', () => {
+            const count = aliasInput.value.length;
+            aliasCharCount.textContent = `${count}/50`;
+        });
     }
-  }, false);
-}
 
-// Placeholder functions for navigating stories
-function goToNextStory() {
-  console.log("Next story");
-}
+    if (whahappenInput && whahappenCharCount) {
+        whahappenInput.addEventListener('input', () => {
+            const count = whahappenInput.value.length;
+            whahappenCharCount.textContent = `${count}/200`;
+        });
+    }
 
-function goToPreviousStory() {
-  console.log("Previous story");
-}
+    // Validate form submission for Send Tea
+    window.validateSendTeaForm = () => {
+        const aliasValue = aliasInput.value.trim();
+        const whahappenValue = whahappenInput.value.trim();
+        
+        if (aliasValue === '' || whahappenValue === '') {
+            alert("Missing field(s)!");
+        } else {
+            alert("Thanks!");
+            aliasInput.value = '';
+            whahappenInput.value = '';
+        }
+    };
 
-// Display popup for missing fields or success on form submission
-function showFormPopup(message) {
-  alert(message); // Placeholder for a smooth fade-in animation popup
-}
+    // Cycle through dynamic content
+    let dynamicContentIndex = 0;
+    const dynamicContent = document.getElementById('dynamic-content');
+    const contentList = ["Tip 1: Try this!", "Tip 2: Did you know?", "Tip 3: Stay tuned!"];
 
-// Send Tea form validation
-function validateSendTeaForm() {
-  let alias = document.querySelector("#alias").value;
-  let whahappen = document.querySelector("#whahappen").value;
-  
-  if (!alias || !whahappen) {
-    showFormPopup("Missing field(s)!");
-  } else {
-    showFormPopup("Thanks!");
-    // Here you can add logic to send form data to email or server
-    setTimeout(function() {
-      document.querySelector("#alias").value = '';
-      document.querySelector("#whahappen").value = '';
-    }, 1000);
-  }
-}
+    if (dynamicContent) {
+        setInterval(() => {
+            dynamicContentIndex = (dynamicContentIndex + 1) % contentList.length;
+            dynamicContent.textContent = contentList[dynamicContentIndex];
+        }, 10000); // 10 seconds interval
+    }
 
-// Attach event listener for word cloud search
-function enableWordCloudSearch() {
-  var words = document.querySelectorAll('#word-cloud span');
-  words.forEach(function(word) {
-    word.addEventListener('click', function() {
-      var searchTerm = word.innerText;
-      performSearch(searchTerm);
-    });
-  });
-}
+    // Navigation through dynamic content arrows
+    const leftArrow = document.querySelector('.nav-arrow:first-of-type');
+    const rightArrow = document.querySelector('.nav-arrow:last-of-type');
 
-// Perform search for a word in the word cloud
-function performSearch(query) {
-  console.log("Search triggered for: " + query); // Placeholder for actual search functionality
-}
+    if (leftArrow && rightArrow && dynamicContent) {
+        leftArrow.addEventListener('click', () => {
+            dynamicContentIndex = (dynamicContentIndex - 1 + contentList.length) % contentList.length;
+            dynamicContent.textContent = contentList[dynamicContentIndex];
+        });
 
-// Initialize the script after the page has loaded
-window.onload = function() {
-  loadStoryContent('week1.txt'); // Load initial story from week1.txt
-  loadRandomContent(); // Load random dynamic content
-  rotateHeaderImage(); // Set up header image rotation
-  enableSwipeNavigation(); // Enable swipe for mobile
-  enableWordCloudSearch(); // Enable word cloud functionality
-};
+        rightArrow.addEventListener('click', () => {
+            dynamicContentIndex = (dynamicContentIndex + 1) % contentList.length;
+            dynamicContent.textContent = contentList[dynamicContentIndex];
+        });
+    }
+
+    // Calendar popup functionality for mobile (if needed)
+    const calendar = document.getElementById('calendar');
+    if (calendar) {
+        calendar.addEventListener('click', () => {
+            alert("Calendar popup coming soon!");
+        });
+    }
+});
