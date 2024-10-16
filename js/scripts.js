@@ -1,4 +1,3 @@
-
 // Load story content from text files (e.g., week1.txt, week2.txt)
 function loadStoryContent(file) {
   fetch('stories/' + file)
@@ -65,10 +64,26 @@ function goToPreviousStory() {
   console.log("Previous story");
 }
 
-// Display popup for calendar on mobile when clicked
-function toggleCalendarPopup() {
-  let calendar = document.getElementById('calendar');
-  calendar.classList.toggle('show-popup');
+// Display popup for missing fields or success on form submission
+function showFormPopup(message) {
+  alert(message); // Placeholder for a smooth fade-in animation popup
+}
+
+// Send Tea form validation
+function validateSendTeaForm() {
+  let alias = document.querySelector("#alias").value;
+  let whahappen = document.querySelector("#whahappen").value;
+  
+  if (!alias || !whahappen) {
+    showFormPopup("Missing field(s)!");
+  } else {
+    showFormPopup("Thanks!");
+    // Here you can add logic to send form data to email or server
+    setTimeout(function() {
+      document.querySelector("#alias").value = '';
+      document.querySelector("#whahappen").value = '';
+    }, 1000);
+  }
 }
 
 // Attach event listener for word cloud search
