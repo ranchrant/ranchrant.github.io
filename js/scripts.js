@@ -11,13 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(err => console.log("Error loading story:", err));
     }
 
-    // Call the function to load the current story (week1.txt or whatever is in 'stories/')
-    loadStory('week1.txt'); // Make sure the current story file is named accordingly in 'stories/'
+    // Load the current story from 'current.txt' or any given name
+    loadStory('current.txt');
 
     // Dynamic content cycling
     let dynamicContentIndex = 0;
     const dynamicContent = document.getElementById('dynamic-content');
-    const contentList = ["Tip 1: Try this!", "Tip 2: Did you know?", "Tip 3: Stay tuned!"]; // Placeholder content from content.txt
+    const contentList = ["Tip 1: Try this!", "Tip 2: Did you know?", "Tip 3: Stay tuned!"]; // Placeholder content
 
     if (dynamicContent) {
         dynamicContent.textContent = contentList[dynamicContentIndex]; // Load the initial content
@@ -93,4 +93,15 @@ document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('archive-items')) {
         loadArchive();
     }
+
+    // Newsletter submission function (basic functionality for now)
+    window.submitNewsletter = () => {
+        const emailInput = document.getElementById('email').value.trim();
+        if (emailInput === '') {
+            alert('Please enter a valid email address.');
+        } else {
+            alert('Thanks for signing up!');
+            document.getElementById('email').value = ''; // Clear the input field
+        }
+    };
 });
