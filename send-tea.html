@@ -50,30 +50,6 @@
     <small>&copy; Triple-R 2024. All rights reserved.</small>
   </footer>
 
-  <script>
-    // Function to validate the Send Tea form
-    function validateSendTeaForm() {
-      const aliasInput = document.getElementById('alias').value.trim();
-      const whahappenInput = document.getElementById('whahappen').value.trim();
-
-      if (aliasInput === '' || whahappenInput === '') {
-        alert("Missing field(s)!");
-      } else {
-        alert("Thanks!");
-        // Clear fields after submission
-        document.getElementById('alias').value = '';
-        document.getElementById('whahappen').value = '';
-      }
-    }
-
-    // Character count update for both fields
-    document.getElementById('alias').addEventListener('input', function () {
-      document.getElementById('alias-char-count').textContent = `${this.value.length}/50`;
-    });
-
-    document.getElementById('whahappen').addEventListener('input', function () {
-      document.getElementById('whahappen-char-count').textContent = `${this.value.length}/200`;
-    });
-  </script>
+  <script src="js/scripts.js"></script>
 </body>
 </html>
