@@ -14,25 +14,27 @@ header {
 }
 
 #logo {
-    font-size: 5em;
-    color: #fff;
-    font-family: 'Chango', sans-serif;
-    letter-spacing: 2px;
-    text-transform: uppercase;
     position: relative;
+    text-align: center;
 }
 
 #logo h1 {
     margin: 0;
-    font-size: 2em;
+    font-size: 5.6em; /* 30% smaller than previous */
+    background-image: url('/images/header.png'); /* Path to your background image */
+    background-size: cover;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    display: inline-block;
 }
 
 #logo::before {
     content: 'the';
     position: absolute;
-    left: -60px; /* Adjust to fit */
-    top: 20px; /* Adjust to fit */
-    font-size: 1.5em;
+    left: -80px; /* Adjusted to fit new size */
+    top: 20px;
+    font-size: 0.375em; /* 25% of the original size */
     font-family: 'Pacifico', cursive;
     color: #fff;
     transform: rotate(-10deg);
