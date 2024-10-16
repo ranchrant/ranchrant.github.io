@@ -1,15 +1,14 @@
-
 /* General Styles */
 body {
-  background-color: #000; /* Epic dark background */
-  color: #f5f5f5; /* Light text for contrast */
-  font-family: 'Poppins', sans-serif; /* Modern font for sleek appearance */
+  background-color: #000;
+  color: #f5f5f5;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* Header Stencil Effect */
 .header-logo h1 {
-  font-size: 10vw; /* Bigger, more epic title */
-  color: transparent; /* Transparent letters */
+  font-size: 12vw; /* Bigger and more grand title */
+  color: transparent; /* Transparent letters for image */
   background-image: url('../images/header.png'); /* Image fills the letters */
   background-clip: text;
   -webkit-background-clip: text;
@@ -18,11 +17,22 @@ body {
   margin: 0;
 }
 
+.header-logo h1::before {
+  content: 'the ';
+  color: white;
+  font-family: cursive;
+  font-size: 3vw;
+  position: absolute;
+  transform: rotate(-15deg);
+  top: -20px;
+  left: 20px;
+}
+
 /* Navigation Bar */
 .navbar {
   display: flex;
   justify-content: flex-start;
-  background-color: #222; /* Darker background for contrast */
+  background-color: #222;
   padding: 10px;
 }
 
@@ -34,7 +44,7 @@ body {
 }
 
 .navbar a:hover {
-  color: #ff5e5e; /* Slight color change on hover */
+  color: #ff5e5e; /* Color change on hover */
 }
 
 #search-bar {
@@ -49,32 +59,41 @@ body {
   height: 24px;
 }
 
-/* Story Text Wrapping */
-#content-wrapper {
-  display: flex;
-  flex-wrap: wrap; /* Allows story text to wrap properly */
-  align-items: flex-start;
+/* Story Section */
+#current-story h3 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
 }
 
-#current-story {
-  flex: 1; /* Allows the story content to expand */
-  min-width: 60%; /* Minimum width so it doesn't collide with the right column */
-  padding-right: 15px; /* Gap between story and right column */
+#current-story p {
+  font-size: 1.1em;
+  line-height: 1.6em;
 }
 
 /* Right-side Layout */
 #right-side {
   width: 25%;
+  float: right;
   margin-left: 10px;
+}
+
+#content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#current-story {
+  flex: 1;
+  min-width: 60%;
+  padding-right: 15px;
 }
 
 /* Dynamic Content Box */
 #dynamic-content-section {
   background-color: #f4ecd8; /* Papyrus background */
-  color: #111; /* Black text */
+  color: #111;
   padding: 20px;
-  border: 2px solid #666; /* Barbed wire-like effect */
-  margin-bottom: 20px;
+  border: 2px solid #666; /* Double border for visual effect */
 }
 
 #dynamic-content {
@@ -82,34 +101,40 @@ body {
   line-height: 1.6;
 }
 
-/* Calendar Display */
-.calendar-icon {
-  width: 40px;
-  height: 40px;
+.nav-arrow {
+  width: 30px;
+  margin: 10px;
   cursor: pointer;
-  display: none; /* Hidden by default except on mobile */
 }
 
-.desktop-only {
-  display: block;
+.nav-arrow:hover {
+  opacity: 0.8;
 }
 
-.mobile-only {
-  display: none;
+/* Calendar Section */
+#calendar-section {
+  background-color: #222;
+  padding: 20px;
+  color: #f5f5f5;
 }
 
-@media (max-width: 768px) {
-  .desktop-only {
-    display: none; /* Hide full calendar on mobile */
-  }
-  .mobile-only {
-    display: inline-block; /* Show calendar icon */
-  }
+#calendar {
+  background-color: #444;
+  padding: 10px;
 }
 
-/* Preserve PNG Transparency */
-.social-media a img, .nav-arrow, .calendar-icon {
-  background-color: transparent; /* Ensure transparency is preserved */
+/* Word Cloud */
+#word-cloud {
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#word-cloud span {
+  display: inline-block;
+  margin: 5px;
+  font-weight: bold;
+  font-size: 1.4em;
 }
 
 /* Footer */
@@ -139,12 +164,5 @@ footer small {
   width: 35px;
   height: 35px;
   cursor: pointer;
-  display: none; /* Initially hidden, shown on mobile */
-}
-
-@media (max-width: 768px) {
-  #menu-icon {
-    display: inline-block;
-    margin-left: auto;
-  }
+  display: none;
 }
