@@ -10,16 +10,18 @@
 </head>
 <body>
   <header>
-<div id="logo" class="header-logo">
-  <h1>Ranch Rant</h1>
-</div>
+    <div id="logo" class="header-logo">
+      <h1>Ranch Rant</h1>
+    </div>
     <nav class="navbar">
       <a href="index.html">Home</a>
       <a href="send-tea.html">Send Tea</a>
       <a href="archive.html">Archive</a>
       <a href="shop.html">Shop</a>
     </nav>
-    <p id="short-description">No story is too crazy for The Ranch Rant, so hit us with the spiciest tea—anonymity guaranteed (we’ll never snitch).</p>
+    <p id="short-description">
+      No story is too crazy for The Ranch Rant, so hit us with the spiciest tea—anonymity guaranteed (we’ll never snitch).
+    </p>
   </header>
 
   <main>
@@ -47,5 +49,31 @@
     </div>
     <small>&copy; Triple-R 2024. All rights reserved.</small>
   </footer>
+
+  <script>
+    // Function to validate the Send Tea form
+    function validateSendTeaForm() {
+      const aliasInput = document.getElementById('alias').value.trim();
+      const whahappenInput = document.getElementById('whahappen').value.trim();
+
+      if (aliasInput === '' || whahappenInput === '') {
+        alert("Missing field(s)!");
+      } else {
+        alert("Thanks!");
+        // Clear fields after submission
+        document.getElementById('alias').value = '';
+        document.getElementById('whahappen').value = '';
+      }
+    }
+
+    // Character count update for both fields
+    document.getElementById('alias').addEventListener('input', function () {
+      document.getElementById('alias-char-count').textContent = `${this.value.length}/50`;
+    });
+
+    document.getElementById('whahappen').addEventListener('input', function () {
+      document.getElementById('whahappen-char-count').textContent = `${this.value.length}/200`;
+    });
+  </script>
 </body>
 </html>
