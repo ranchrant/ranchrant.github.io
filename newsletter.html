@@ -11,7 +11,7 @@
 <body>
   <header>
     <div id="logo" class="header-logo">
-      <h1>Ranch Rant</h1>
+      <h1><span class="small-the">the</span> Ranch Rant</h1>
     </div>
     <nav class="navbar">
       <a href="index.html">Home</a>
@@ -23,10 +23,11 @@
 
   <main>
     <section id="content-wrapper">
-      <form id="newsletter-signup-form">
+      <h2>Newsletter Signup</h2>
+      <form id="newsletter-form">
         <label for="email">Email:</label>
-        <input type="email" id="email" maxlength="100" placeholder="Enter your email...">
-        <button type="button" onclick="submitNewsletter()">Sign Up</button>
+        <input type="email" id="email" maxlength="100" placeholder="Enter your email address">
+        <button type="button" onclick="submitNewsletter()">Submit</button>
       </form>
     </section>
   </main>
@@ -40,7 +41,5 @@
     </div>
     <small>&copy; Triple-R 2024. All rights reserved.</small>
   </footer>
-
-  <script src="js/scripts.js"></script>
 </body>
 </html>
