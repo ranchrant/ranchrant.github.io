@@ -1,192 +1,67 @@
-/* General body styles */
+/* General styles */
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: #111;
-    color: #fff;
+  font-family: Arial, sans-serif;
+  background-color: black;
+  color: white;
 }
 
-header {
-    background-color: #000;
-    padding: 20px;
-    text-align: center;
-    position: relative;
+.header-logo h1 {
+  font-family: 'Chango', cursive;
+  font-size: 4em; /* Increased by 25% */
+  text-align: center;
 }
 
-#logo {
-    position: relative;
-    text-align: center;
-}
-
-#logo h1 {
-    margin: 0;
-    font-size: 5.6em; /* Adjusted for scaling */
-    background-image: url('/images/header.png'); /* Path to your background image */
-    background-size: cover;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    display: inline-block;
-    max-width: 100%;
-}
-
-#logo::before {
-    content: 'the';
-    position: absolute;
-    left: -80px; /* Adjust for alignment */
-    top: 20px;
-    font-size: 0.375em; /* 25% of the original size */
-    font-family: 'Pacifico', cursive;
-    color: #fff;
-    transform: rotate(-10deg);
-}
-
-/* Navbar styling */
-.navbar {
-    display: flex;
-    justify-content: left;
-    gap: 20px;
-    background-color: #222;
-    padding: 10px;
-    font-size: 1.2em;
+.small-the {
+  font-family: 'Pacifico', cursive;
+  font-size: 1em;
+  position: absolute;
+  transform: translateY(-50%) rotate(-10deg);
 }
 
 .navbar a {
-    color: #fff;
-    text-decoration: none;
+  color: white;
+  padding: 10px;
 }
 
-.navbar a:hover {
-    color: #ff6347;
+footer .social-media img {
+  width: 30px;
+  height: 30px;
+  margin: 5px;
 }
 
-/* Short description */
-#short-description {
-    font-size: 1.2em;
-    margin-top: 10px;
-    color: #ff6347;
-}
-
-/* Section content */
 #content-wrapper {
-    display: flex;
-    padding: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
-#current-story {
-    flex-grow: 1;
-    padding-right: 20px;
+aside {
+  width: 25%;
 }
 
-#right-side {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 300px;
+main section {
+  width: 70%;
 }
 
-/* Content box styles */
-#dynamic-content-section, #calendar-section, #word-cloud-section {
-    border: 1px solid #444;
-    padding: 15px;
-    background-color: #222;
+/* Form styles for Send Tea */
+#send-tea-form label {
+  display: block;
+  margin-bottom: 10px;
 }
 
-.nav-arrow {
-    cursor: pointer;
-    font-size: 0.8em;
-    color: #fff;
-    margin: 0 5px;
-}
-
-.nav-arrow:hover {
-    color: #ff6347;
-}
-
-/* Form styling */
-input[type="text"], input[type="email"], textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #222;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
+#send-tea-form input,
+#send-tea-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: #222;
+  color: white;
+  padding: 10px;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #ff6347;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #ff4500;
-}
-
-/* Footer styles */
-footer {
-    background-color: #000;
-    padding: 20px;
-    text-align: center;
-}
-
-.social-media img {
-    width: 30px;
-    margin: 0 10px;
-    filter: brightness(0) invert(1);
-}
-
-.social-media img:hover {
-    filter: brightness(0) invert(0.7);
-}
-
-/* Archive list styles */
-#archive-list {
-    flex-grow: 1;
-    padding-right: 20px;
-}
-
-#archive-items li {
-    margin-bottom: 10px;
-    color: #fff;
-}
-
-#archive-items li strong {
-    font-weight: bold;
-    color: #ff6347;
-}
-
-/* Dynamic content box */
-#dynamic-content-section {
-    background-color: #f5f5dc; /* Papyrus/off-white background */
-    color: #000;
-    padding: 20px;
-}
-
-#dynamic-content {
-    border: 2px solid #000;
-    padding: 10px;
-}
-
-/* Character count styling */
-.char-count {
-    font-size: 0.8em;
-    color: #999;
-    margin-left: 5px;
-}
-
-/* Responsive design for smaller screens */
-@media (max-width: 768px) {
-    #content-wrapper {
-        flex-direction: column;
-    }
-
-    #right-side {
-        width: 100%;
-        margin-top: 20px;
-    }
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
 }
