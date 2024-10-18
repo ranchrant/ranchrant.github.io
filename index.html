@@ -11,7 +11,7 @@
 <body>
   <header>
     <div id="logo" class="header-logo">
-      <h1>Ranch Rant</h1>
+      <h1><span class="small-the">the</span> Ranch Rant</h1>
     </div>
     <nav class="navbar">
       <a href="index.html">Home</a>
@@ -29,9 +29,8 @@
   <main>
     <section id="content-wrapper">
       <div id="current-story">
-        <h2>Current Story</h2>
-        <h3 id="story-title"></h3>
-        <p id="story-content"></p>
+        <h2 id="story-title"></h2>
+        <div id="story-content"></div>
       </div>
 
       <aside id="right-side">
@@ -63,19 +62,5 @@
     </div>
     <small>&copy; Triple-R 2024. All rights reserved.</small>
   </footer>
-
-  <script>
-    // Correct pointer to load the current story from 'current.txt' in the 'stories' folder
-    document.addEventListener('DOMContentLoaded', () => {
-        fetch('stories/current.txt')  // Correct line here!
-            .then(response => response.text())
-            .then(data => {
-                const storyParts = data.split('\n');
-                document.getElementById('story-title').textContent = storyParts[0]; // First line is the title
-                document.getElementById('story-content').textContent = storyParts.slice(1).join('\n'); // Rest is content
-            })
-            .catch(err => console.error("Error loading current story:", err));
-    });
-  </script>
 </body>
 </html>
