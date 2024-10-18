@@ -3,24 +3,31 @@ body {
   font-family: Arial, sans-serif;
   background-color: black;
   color: white;
+  margin: 0;
+  padding: 0;
 }
 
 .header-logo h1 {
   font-family: 'Chango', cursive;
-  font-size: 4em; /* Increased by 25% */
+  font-size: 3.5em; /* Adjusted size */
   text-align: center;
+  background-image: url('../images/foothills.jpg'); /* Example image behind text */
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 .small-the {
   font-family: 'Pacifico', cursive;
-  font-size: 1em;
-  position: absolute;
-  transform: translateY(-50%) rotate(-10deg);
+  font-size: 1em; /* 50% smaller than before */
+  position: relative;
+  transform: translateY(-20%);
+  margin-right: 10px;
 }
 
 .navbar a {
   color: white;
   padding: 10px;
+  text-decoration: none;
 }
 
 footer .social-media img {
@@ -29,33 +36,43 @@ footer .social-media img {
   margin: 5px;
 }
 
+footer small.disclaimer {
+  font-size: 0.7em;
+  color: gray;
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+
 #content-wrapper {
   display: flex;
   justify-content: space-between;
+  padding: 20px;
 }
 
 aside {
-  width: 25%;
+  width: 30%;
+  padding-left: 20px;
 }
 
 main section {
-  width: 70%;
+  width: 65%;
 }
 
-/* Form styles for Send Tea */
-#send-tea-form label {
-  display: block;
-  margin-bottom: 10px;
+h3 {
+  color: lightgreen;
 }
 
 #send-tea-form input,
 #send-tea-form textarea {
   display: block;
   width: 100%;
-  margin-bottom: 20px;
-  background-color: #222;
-  color: white;
-  padding: 10px;
+  margin-top: 20px;
+}
+
+#dynamic-content-section {
+  padding: 15px;
+  background-color: #F4F1E0;
 }
 
 button {
